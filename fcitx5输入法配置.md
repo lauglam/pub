@@ -1,7 +1,7 @@
-### 安装 fcitx5 相关包
+## 安装 fcitx5 相关包
 
 
-* 官方包安装
+### 官方包安装
 
 ```shell
 sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl
@@ -13,7 +13,7 @@ sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-pinyi
 - fcitx5-pinyin-moegirl: 萌娘词库
 
 
-* AUR包安装（可选）
+### AUR包安装（可选）
 
 ```shell
 yay -S fcitx5-pinyin-custom-pinyin-dictionary
@@ -22,7 +22,7 @@ yay -S fcitx5-pinyin-custom-pinyin-dictionary
 - fcitx5-pinyin-custom-pinyin-dictionary: Fcitx5 自建拼音输入法词库，百万常用词汇量
 
 
-* 添加开机执行脚本`enable_fcitx.sh`
+### 添加开机执行脚本`enable_fcitx.sh`
 
 ```shell
 sudo nano /etc/profile.d/enable_fcitx.sh

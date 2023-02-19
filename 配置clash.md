@@ -1,9 +1,9 @@
-## 安装 Clash
+# 安装 Clash
 
-### 准备工作
+## 准备工作
 
 
-* 下载 clash
+### 下载 clash
 
 ```text
 https://github.com/Dreamacro/clash/releases
@@ -12,7 +12,7 @@ https://github.com/Dreamacro/clash/releases
 下载完解压，将程序改名为 clash
 
 
-* 下载 clash dashboard
+### 下载 clash dashboard
 
 ```text
 https://github.com/Dreamacro/clash-dashboard/tree/gh-pages
@@ -21,7 +21,7 @@ https://github.com/Dreamacro/clash-dashboard/tree/gh-pages
 下载完解压，将文件夹改名为 dashboard
 
 
-* 启动 Clash（让它创建配置文件）
+### 启动 Clash（让它创建配置文件）
 
 ```shell
 ./clash -d .
@@ -30,21 +30,21 @@ https://github.com/Dreamacro/clash-dashboard/tree/gh-pages
 它会在当前目录自动下载`cache.db` `Country.mmdb` 和 `config.yaml`文件
 
 
-* 下载订阅和配置信息（这会覆盖 clash 下载的默认 `config.yaml` 文件）
+### 下载订阅和配置信息（这会覆盖 clash 下载的默认 `config.yaml` 文件）
 
 ```shell
 sudo wget -O config.yaml [订阅地址]
 ```
 
 
-* 打开 clash 订阅配置文件: `config.yaml`，设置外部管理ui
+### 打开 clash 订阅配置文件: `config.yaml`，设置外部管理ui
 
 ```shell
 external-ui: dashboard
 ```
 
 
-* 建立开机启动服务配置文件: `clash.service`
+### 建立开机启动服务配置文件: `clash.service`
 
 ```shell
 sudo nano ./clash.service
@@ -69,7 +69,7 @@ WantedBy=multi-user.target
 保存退出
 
 
-* 全局代理脚本: `enable_proxy.sh`
+### 全局代理脚本: `enable_proxy.sh`
 
 ```shell
 sudo nano ./enable_proxy.sh
@@ -86,7 +86,7 @@ export no_proxy="localhost,127.0.0.1,::1"
 ```
 
 
-* 将上面所有文件放进 clash 文件夹，具体结构如下：
+### 将上面所有文件放进 clash 文件夹，具体结构如下：
 
 ```text
 clash
@@ -105,59 +105,59 @@ clash
 ### 移动到正确位置
 
 
-* 将 clash 程序移动到 `/usr/bin/` 目录下
+### 将 clash 程序移动到 `/usr/bin/` 目录下
 
 ```shell
 sudo mv ./clash/clash /usr/bin/
 ```
 
 
-* 将 enable_proxy 脚本文件移动到 `/etc/profile.d/` 目录下（开机后系统会自动执行该目录下的用户脚本）
+### 将 enable_proxy 脚本文件移动到 `/etc/profile.d/` 目录下（开机后系统会自动执行该目录下的用户脚本）
 
 ```shell
 sudo mv ./clash/enable_proxy.sh /etc/profile.d/
 ```
 
 
-* 将 clash 文件夹移动到`/etc/` 目录下，方便后续管理
+### 将 clash 文件夹移动到`/etc/` 目录下，方便后续管理
 
 ```shell
 sudo mv ./clash /etc/
 ```
 
 
-* 将开启启动配置 clash.service 链接到 `/etc/systemd/system/` 目录下
+### 将开启启动配置 clash.service 链接到 `/etc/systemd/system/` 目录下
 
 ```shell
 sudo ln -s /etc/clash/clash.service /etc/systemd/system/
 ```
 
 
-### 设置 Clash 开机启动
+## 设置 Clash 开机启动
 
 
-* 启动 clash
+### 启动 clash
 
 ```shell
 sudo systemctl start clash.service
 ```
 
 
-* 查看 clash 状态
+### 查看 clash 状态
 
 ```shell
 sudo systemctl status clash.service
 ```
 
 
-* 设置 clash 开机自启动
+### 设置 clash 开机自启动
 
 ```shell
 sudo systemctl enable clash.service
 ```
 
 
-* 以下为 clash 相关的管理命令
+### 以下为 clash 相关的管理命令
 
 ```shell
 # 启动Clash
@@ -171,9 +171,9 @@ sudo systemctl status clash.service
 ```
 
 
-### 配置定时更新订阅（可选）
+## 配置定时更新订阅（可选）
 
-* 先撸个脚本，别忘了设可执行权限
+### 先撸个脚本，别忘了设可执行权限
 
 ```shell
 #!/bin/bash
@@ -203,14 +203,14 @@ export https_proxy="http://127.0.0.1:7890"
 ```
 
 
-* 设置定时任务
+### 设置定时任务
 
 ```shell
 sudo crontab -e
 ```
 
 
-* 填入以下内容
+### 填入以下内容
 
 ```shell
 //每月1号和15号的4点30分开始更新
@@ -218,14 +218,14 @@ sudo crontab -e
 ```
 
 
-* 重启crontab，使配置生效
+### 重启crontab，使配置生效
 
 ```shell
 sudo systemctl restart cron.service
 ```
 
 
-* 查看代理是否正常工作
+### 查看代理是否正常工作
 
 ```shell
 curl www.google.com
