@@ -1,10 +1,16 @@
 ## 安装 fcitx5 相关包
 
 
-### 官方包安装
+### 官方包
 
 ```shell
-sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki
+```
+
+### [archlinuxcn](https://mirrors.tuna.tsinghua.edu.cn/help/archlinuxcn/)
+
+```shell
+sudo pacman -S fcitx5-pinyin-moegirl
 ```
 
 - fcitx5-im: fcitx5-im 包组提供 fcitx5 包本体配置工具和必要的输入法模块
