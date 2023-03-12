@@ -1,4 +1,4 @@
-# 设置代理
+# 设置 Git 代理
 
 ## Git 设置代理（如果有使用全局代理则不需要）
 
@@ -24,25 +24,4 @@ git config --global --unset https.proxy 'http://127.0.0.1:7890'
 
 ```shell
 git config --global credential.helper store
-```
-
-## 设置 nodejs 国内源
-
-
-### 临时更换
-
-```shell
-npm --registry https://registry.npm.taobao.org install express
-```
-
-### 永久使用
-
-```shell
-npm config set registry https://registry.npm.taobao.org
-```
-
-### 检查
-
-```shell
-npm config get registry
 ```
